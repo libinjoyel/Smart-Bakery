@@ -8,8 +8,6 @@ html, body, #root {
   font-family: 'Segoe UI', Tahoma, sans-serif;
   background: #f3efe7;
   color: #1c1b1a;
-  overflow-x: hidden;
-  max-width: 100%;
 }
 
 body {
