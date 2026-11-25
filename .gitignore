@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Environment files & secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Neon local config
+.neon
+.neon/
+
+# Production build outputs
+dist/
+dist-ssr/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
