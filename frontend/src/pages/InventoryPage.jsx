@@ -48,37 +48,39 @@ function InventoryPage() {
             </select>
           </label>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Batch</th>
-              <th>Product</th>
-              <th>Added on</th>
-              <th>Qty</th>
-              <th>Expiry</th>
-              <th>Days left</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredInventory.map((batch) => (
-              <tr key={batch.batchId}>
-                <td>{batch.batchNumber}</td>
-                <td>{batch.name}</td>
-                <td>{batch.createdAt ? new Date(batch.createdAt).toLocaleString() : '—'}</td>
-                <td>{batch.quantityRemaining}</td>
-                <td>{new Date(batch.expiryDate).toLocaleDateString()}</td>
-                <td>{batch.daysLeft}</td>
-                <td><StatusBadge status={batch.status} /></td>
-              </tr>
-            ))}
-            {!filteredInventory.length && (
+        <div className="table-responsive">
+          <table>
+            <thead>
               <tr>
-                <td colSpan="7" className="empty-table-state">No matching inventory found.</td>
+                <th>Batch</th>
+                <th>Product</th>
+                <th>Added on</th>
+                <th>Qty</th>
+                <th>Expiry</th>
+                <th>Days left</th>
+                <th>Status</th>
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredInventory.map((batch) => (
+                <tr key={batch.batchId}>
+                  <td>{batch.batchNumber}</td>
+                  <td>{batch.name}</td>
+                  <td>{batch.createdAt ? new Date(batch.createdAt).toLocaleString() : '—'}</td>
+                  <td>{batch.quantityRemaining}</td>
+                  <td>{new Date(batch.expiryDate).toLocaleDateString()}</td>
+                  <td>{batch.daysLeft}</td>
+                  <td><StatusBadge status={batch.status} /></td>
+                </tr>
+              ))}
+              {!filteredInventory.length && (
+                <tr>
+                  <td colSpan="7" className="empty-table-state">No matching inventory found.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
   );

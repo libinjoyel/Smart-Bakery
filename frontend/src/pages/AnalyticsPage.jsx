@@ -59,21 +59,23 @@ function AnalyticsPage() {
                 <strong>{new Date(day.date).toLocaleDateString()}</strong>
                 <span>Daily total: {formatInr(day.total)}</span>
               </div>
-              <table>
-                <thead>
-                  <tr><th>Sale</th><th>Products</th><th>Total</th><th>Time</th></tr>
-                </thead>
-                <tbody>
-                  {day.sales.map((sale, saleIndex) => (
-                    <tr key={sale.saleId}>
-                      <td>Sale #{saleIndex + 1}</td>
-                      <td><div className="analytics-sale-items">{sale.items.map((item) => <div key={`${sale.saleId}-${item.productId}`}>{item.itemName} × {item.quantitySold} → {formatInr(item.salePriceTotal)}</div>)}</div></td>
-                      <td>{formatInr(sale.total)}</td>
-                      <td>{new Date(sale.timestamp).toLocaleTimeString()}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <div className="table-responsive">
+                <table>
+                  <thead>
+                    <tr><th>Sale</th><th>Products</th><th>Total</th><th>Time</th></tr>
+                  </thead>
+                  <tbody>
+                    {day.sales.map((sale, saleIndex) => (
+                      <tr key={sale.saleId}>
+                        <td>Sale #{saleIndex + 1}</td>
+                        <td><div className="analytics-sale-items">{sale.items.map((item) => <div key={`${sale.saleId}-${item.productId}`}>{item.itemName} × {item.quantitySold} → {formatInr(item.salePriceTotal)}</div>)}</div></td>
+                        <td>{formatInr(sale.total)}</td>
+                        <td>{new Date(sale.timestamp).toLocaleTimeString()}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           ))}
         </div>
